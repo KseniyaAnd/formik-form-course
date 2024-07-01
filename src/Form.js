@@ -43,7 +43,7 @@ const Form = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
-            {formik.errors.name && formik.touched.name ? <div>{formik.errors.name}</div> : null}
+            {formik.errors.name && formik.touched.name ? <div className="error">{formik.errors.name}</div> : null}
             <label htmlFor="email">Ваша почта</label>
             <input
                 id="email"
@@ -53,7 +53,7 @@ const Form = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
-            {formik.errors.email && formik.touched.email ? <div>{formik.errors.email}</div> : null}
+            {formik.errors.email && formik.touched.email ? <div className="error">{formik.errors.email}</div> : null}
             <label htmlFor="amount">Количество</label>
             <input
                 id="amount"
@@ -63,6 +63,7 @@ const Form = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
+            {formik.errors.amount && formik.touched.amount ? <div className="error">{formik.errors.amount}</div> : null}
             <label htmlFor="currency">Валюта</label>
             <select
                 id="currency"
@@ -76,6 +77,7 @@ const Form = () => {
                 <option value="UAH">UAH</option>
                 <option value="RUB">RUB</option>
             </select>
+            {formik.errors.currency && formik.touched.currency ? <div className="error">{formik.errors.currency}</div> : null}
             <label htmlFor="text">Ваше сообщение</label>
             <textarea
                 id="text"
@@ -84,12 +86,14 @@ const Form = () => {
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
             />
+            {formik.errors.text && formik.touched.text ? <div className="error">{formik.errors.text}</div> : null}
             <label className="checkbox">
                 <input name="terms"
                        type="checkbox"
                        value={formik.values.terms}
                        onChange={formik.handleChange}
                 />
+                {formik.errors.terms && formik.touched.terms ? <div className="error">{formik.errors.terms}</div> : null}
                 Соглашаетесь с политикой конфиденциальности?
             </label>
             <button type="submit">Отправить</button>
