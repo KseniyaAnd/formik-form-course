@@ -28,6 +28,7 @@ const Form = () => {
             text: "",
             terms: false,
         },
+        validate,
         onSubmit: values => console.log(JSON.stringify(values, null, 2))
     })
 
@@ -42,6 +43,7 @@ const Form = () => {
                 value={formik.values.name}
                 onChange={formik.handleChange}
             />
+            {formik.errors.name ? <div>{formik.errors.name}</div> : null}
             <label htmlFor="email">Ваша почта</label>
             <input
                 id="email"
@@ -50,6 +52,7 @@ const Form = () => {
                 value={formik.values.email}
                 onChange={formik.handleChange}
             />
+            {formik.errors.email ? <div>{formik.errors.email}</div> : null}
             <label htmlFor="amount">Количество</label>
             <input
                 id="amount"
