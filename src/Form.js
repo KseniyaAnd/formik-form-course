@@ -1,5 +1,23 @@
 import {useFormik} from "formik";
 
+const validate = values => {
+    const errors = {};
+
+    if (!values.name) {
+        errors.name = "Обязательное поле!";
+    } else if (values.name.length < 2) {
+        errors.name = "Минимум 2 символа!";
+    }
+
+    if (!values.email) {
+        errors.email = "Обязательное поле!";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)) {
+        errors.email = "Неправильный email адрес!";
+    }
+
+    return errors;
+}
+
 const Form = () => {
     const formik = useFormik({
         initialValues: {
